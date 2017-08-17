@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>To Do List</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+ </head>
+ <body>
+   <div id="list_wrapper">
+
+     <div class="form_input">
+       <form action="/" method="post">
+         <input type="text" name="todo" placeholder="Add a to-do..." />
+         <button type="submit">Add to-do</button>
+       </form>
+     </div>
+
+     <div class="to_do_list">
+       <h2>To-do:</h2>
+       {{#todo}}
+        <form action="/complete" method="post">
+          <div name="completed">
+            <button type="submit">Mark as complete:</button>
+            <input type="text" name="complete" value="{{.}}" />
+          </div>
+        </form>
+       {{/todo}}
+     </div>
+
+     <div class="completed_tasks">
+       <h2>Completed tasks:</h2>
+       {{#completed}}
+        <li>
+          {{.}}
+        </li>
+       {{/completed}}
+     </div>
+
+   </div>
+ </body>
+</html>
